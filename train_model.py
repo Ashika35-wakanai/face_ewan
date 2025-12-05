@@ -14,7 +14,7 @@ def getImageName(path):
 
 
     for imagePaths in imagePath:
-        facePic = Image.open(imagePaths).convert("L")  # convert to grayscale
+        facePic = Image.open(imagePaths).convert("L")  
         faceNp = np.array(facePic, 'uint8')
 
         faces.append(faceNp)
@@ -33,5 +33,6 @@ cv2.destroyAllWindows()
 
 
 print("Faces:", len(faces), "Labels:", labels)
+
 
 
