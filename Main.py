@@ -2,8 +2,7 @@ import cv2
 
 cap = cv2.VideoCapture(0)
 faceFront = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
-faceLeft = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_profileface.xml")
-faceRight = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_profileface.xml")
+
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read("model.yml")
@@ -16,8 +15,7 @@ while True:
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     frontFaceLine = faceFront.detectMultiScale(gray, 1.3, 5)
-    leftFaceLine = faceLeft.detectMultiScale(gray, 1.3, 5)
-    rightFaceLine  = faceRight.detectMultiScale(gray,1.3,5)
+
 
     faces = list(frontFaceLine) + list(leftFaceLine) + list(rightFaceLine)
     for (x, y ,w , h) in faces:
@@ -40,6 +38,7 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
 
 
 
