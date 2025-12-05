@@ -3,12 +3,7 @@ import cv2
 import numpy as np
 import os
 
-recognizer =cv2.face.LBPHFaceRecognizer_create()
-expressions = {
-    "Neutral": 0,
-    "Smiling": 1
-}
-path = "Buffe_Jp"
+path = "dataset"
 
 
 def getImageName(path):
@@ -38,4 +33,5 @@ cv2.destroyAllWindows()
 
 
 print("Faces:", len(faces), "Labels:", labels)
+
 
