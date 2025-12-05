@@ -1,7 +1,7 @@
 import cv2
 
 
-dataSetPath = "Buffe_Jp"
+dataSetPath = "dataset" ##yun folder na ginamit mo para makita yun mga picture mo
 
 cap = cv2.VideoCapture(0)
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
@@ -25,7 +25,6 @@ while True:
         file_path = f"{dataSetPath}/muhka.{count}.jpg"
         cv2.imwrite(file_path, face_img)
 
-        # Draw rectangle on screen
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
         cv2.imshow("Capturing Dataset", frame)
@@ -41,3 +40,4 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
