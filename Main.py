@@ -17,7 +17,7 @@ while True:
     frontFaceLine = faceFront.detectMultiScale(gray, 1.3, 5)
 
 
-    faces = list(frontFaceLine) + list(leftFaceLine) + list(rightFaceLine)
+    faces = list(frontFaceLine)
     for (x, y ,w , h) in faces:
         number, conf = recognizer.predict(gray[y:y+h, x:x+w])
         if conf < 60:
@@ -38,6 +38,7 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
 
 
 
